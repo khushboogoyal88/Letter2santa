@@ -8,7 +8,7 @@ const Form = ({ submit, change, role }) => {
           <div className="col s6">
             Name
             <div className="input-field inline">
-              <input id="name" name="name" onChange={change} />
+              <input id="name" name="name" required onChange={change} />
             </div>
           </div>
           <div className="col s6">

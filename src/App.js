@@ -4,7 +4,6 @@ import "./App.css";
 import Nav from "./components/Nav";
 import Letters from "./components/Letters";
 import Form from "./components/Form";
-import View from "./components/View";
 import Popup from "./components/Popup";
 import axios from "axios";
 
@@ -33,26 +32,20 @@ const App = () => {
   };
 
   const submitHandler = () => {
-    axios.post("http://localhost:5000/letters", letter);
-    window.location.reload();
+    if (window.confirm("Should we send your letter to Santa?")) {
+      axios.post("http://localhost:5000/letters", letter);
+      window.location.reload();
+    }
   };
 
   return (
     <Router>
-      <div className="App">
+      <div className="container wrapper ">
         <Nav title="Letter2Santa" icon="email" />
         <Switch>
           <Route exact path="/">
             <Fragment>
-              <Form change={changeHandler} submit={popupHandler} />
-              <View
-                name={letter.name}
-                age={letter.age}
-                pic={letter.pic}
-                isNice={letter.isNice}
-                present={letter.isPresent}
-                meassgae={letter.message}
-              />
+              <Form change={changeHandler} submit={submitHandler} />
               {showPopup && (
                 <Popup
                   name={letter.name}

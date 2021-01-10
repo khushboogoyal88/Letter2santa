@@ -4,7 +4,7 @@ const closeHandler = () => {
   window.location.reload();
 };
 
-const Popup = ({ name, age, pic, isNice, present, message, submit }) => {
+const Popup = ({ name, age, pic, isNice, present, submit }) => {
   return (
     <div className="overlay">
       <div className="popup">
