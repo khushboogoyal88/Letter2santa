@@ -1,26 +1,20 @@
 import React, { useState } from "react";
 
-const Form = () => {
-  const [letter, setLetter] = useState({
-    name: "",
-    age: "",
-    role: "",
-  });
-
+const Form = ({ submit, change, role }) => {
   return (
     <div className="row card card-panel hoverable">
-      <form className="col s12">
+      <form className="col s12" onSubmit={submit}>
         <div className="row">
           <div className="col s6">
             Name
             <div className="input-field inline">
-              <input id="name" />
+              <input id="name" name="name" onChange={change} />
             </div>
           </div>
           <div className="col s6">
             Age
             <div className="input-field inline">
-              <input id="age" />
+              <input id="age" name="age" onChange={change} />
             </div>
           </div>
         </div>
@@ -28,7 +22,7 @@ const Form = () => {
           <div className="col s12">
             Your picture here.
             <div className="input-field inline">
-              <input id="pic" />
+              <input id="pic" name="pic" onChange={change} />
             </div>
           </div>
         </div>
@@ -36,7 +30,12 @@ const Form = () => {
           <div className="col s12">
             Have you been nice this year?
             <div className="input-field inline">
-              <input id="nice" className="validate" />
+              <input
+                id="nice"
+                className="validate"
+                name="isNice"
+                onChange={change}
+              />
               <span
                 className="helper-text"
                 data-error="wrong"
@@ -51,7 +50,12 @@ const Form = () => {
           <div className="col s12">
             What present do you want from Santa?
             <div className="input-field inline">
-              <input id="gift" className="validate" />
+              <input
+                id="gift"
+                className="validate"
+                name="present"
+                onChange={change}
+              />
               <span
                 className="helper-text"
                 data-error="wrong"
@@ -70,6 +74,8 @@ const Form = () => {
                   id="textarea1"
                   className="materialize-textarea"
                   style={{ height: "200px" }}
+                  name="message"
+                  onChange={change}
                 ></textarea>
                 <label for="textarea1">Write you letter here.</label>
               </div>
@@ -79,7 +85,7 @@ const Form = () => {
         <button
           class="btn waves-effect waves-light"
           type="submit"
-          name="action"
+          name="submit"
         >
           Send It
           <i class="material-icons right">send</i>

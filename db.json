@@ -1,9 +1,40 @@
 {
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode" }
+  "letters": [
+    {
+      "id": 1,
+      "name": "Khushboo",
+      "age": "5",
+      "pic": "",
+      "isNice": "yes",
+      "present": "toy",
+      "message": "Hello Santa"
+    },
+    {
+      "name": "Deepesh",
+      "age": "4",
+      "pic": "",
+      "isNice": "yes",
+      "present": "toy",
+      "message": "Hello Santa",
+      "id": 3
+    },
+    {
+      "name": "Mayank",
+      "age": "2",
+      "pic": "ewdw",
+      "isNice": "no",
+      "present": "scs",
+      "message": "sxsaxc",
+      "id": 4
+    },
+    {
+      "name": "Ankur Goyal",
+      "age": "",
+      "pic": "",
+      "isNice": "",
+      "present": "",
+      "message": "",
+      "id": 5
+    }
+  ]
 }
