@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Nav";
+import Letters from "./components/Letters";
 import Form from "./components/Form";
 import View from "./components/View";
 import Popup from "./components/Popup";
@@ -36,28 +38,45 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <Nav title="Letter2Santa" icon="email" />
-      <Form change={changeHandler} submit={submitHandler} />
-      <View
-        name={letter.name}
-        age={letter.age}
-        pic={letter.pic}
-        isNice={letter.isNice}
-        present={letter.isPresent}
-        meassgae={letter.message}
-      />
-      {showPopup && (
-        <Popup
-          name={letter.name}
-          age={letter.age}
-          pic={letter.pic}
-          isNice={letter.isNice}
-          present={letter.present}
-          submit={submitHandler}
-        />
-      )}
-    </div>
+    <Router>
+      <div className="App">
+        <Nav title="Letter2Santa" icon="email" />
+        <Switch>
+          <Route exact path="/">
+            <Fragment>
+              <Form change={changeHandler} submit={popupHandler} />
+              <View
+                name={letter.name}
+                age={letter.age}
+                pic={letter.pic}
+                isNice={letter.isNice}
+                present={letter.isPresent}
+                meassgae={letter.message}
+              />
+              {showPopup && (
+                <Popup
+                  name={letter.name}
+                  age={letter.age}
+                  pic={letter.pic}
+                  isNice={letter.isNice}
+                  present={letter.present}
+                  submit={submitHandler}
+                />
+              )}
+            </Fragment>
+          </Route>
+          <Route path="/letters">
+            <Letters />
+          </Route>
+          <Route path="/:user">
+            <h3>User</h3>
+          </Route>
+          <Route>
+            <h3>No Match</h3>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 };
 

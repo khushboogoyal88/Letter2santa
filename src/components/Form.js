@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Form = ({ submit, change, role }) => {
   return (
@@ -61,7 +61,7 @@ const Form = ({ submit, change, role }) => {
                 data-error="wrong"
                 data-success="right"
               >
-                Like a car, barbie or book.
+                Like a toy, barbie or book.
               </span>
             </div>
           </div>
@@ -83,7 +83,7 @@ const Form = ({ submit, change, role }) => {
           </form>
         </div>
         <button
-          class="btn waves-effect waves-light"
+          className="btn waves-effect waves-light modal-trigger"
           type="submit"
           name="submit"
         >
