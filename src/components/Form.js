@@ -1,6 +1,6 @@
 import React from "react";
 
-const Form = ({ submit, change, role }) => {
+const Form = ({ submit, change }) => {
   return (
     <div className="row card card-panel hoverable">
       <form className="col s12" onSubmit={submit}>

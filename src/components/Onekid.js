@@ -1,7 +1,7 @@
 import React from "react";
 
 const Onekid = (props) => {
-  const { pic, name, age, message } = props.kid;
+  const { pic, name, age, message } = props.letter;
   return (
     <div className="row">
       <div className="col s12 m6">
@@ -26,5 +26,4 @@ const Onekid = (props) => {
     </div>
   );
 };
-
 export default Onekid;
