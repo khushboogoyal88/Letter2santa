@@ -1,15 +1,6 @@
 {
   "letters": [
     {
-      "id": 1,
-      "name": "Khushboo",
-      "age": "5",
-      "pic": "http://source.unsplash.com/GagC07wVvck/1600x900",
-      "isNice": "yes",
-      "present": "toy",
-      "message": "Hello Santa"
-    },
-    {
       "id": 2,
       "name": "Deepesh",
       "age": "5",
@@ -41,15 +32,6 @@
       "name": "Kia",
       "age": "4",
       "pic": "http://source.unsplash.com/XRcEsQKTWGk/1600x900",
-      "isNice": "yes",
-      "present": "toy",
-      "message": "Hello Santa"
-    },
-    {
-      "id": 6,
-      "name": "Vihaan",
-      "age": "6",
-      "pic": "http://source.unsplash.com/_YfoApRxd4I/1600x900",
       "isNice": "yes",
       "present": "toy",
       "message": "Hello Santa"

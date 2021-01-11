@@ -4,7 +4,62 @@ import axios from "axios";
 
 export class Letters extends Component {
   state = {
-    letters: [],
+    letters: [
+      {
+        id: 1,
+        name: "Khushboo",
+        age: "5",
+        pic: "http://source.unsplash.com/GagC07wVvck/1600x900",
+        isNice: "yes",
+        present: "toy",
+        message: "Hello Santa",
+      },
+      {
+        id: 2,
+        name: "Deepesh",
+        age: "5",
+        pic: "http://source.unsplash.com/vKuEhorbvYI/1600x900",
+        isNice: "yes",
+        present: "toy",
+        message: "Hello Santa",
+      },
+      {
+        id: 3,
+        name: "Mayank",
+        age: "5",
+        pic: "http://source.unsplash.com/qDY9ahp0Mto/1600x900",
+        isNice: "yes",
+        present: "toy",
+        message: "Hello Santa",
+      },
+      {
+        id: 4,
+        name: "Ankur",
+        age: "5",
+        pic: "http://source.unsplash.com/qDY9ahp0Mto/1600x900",
+        isNice: "yes",
+        present: "toy",
+        message: "Hello Santa",
+      },
+      {
+        id: 5,
+        name: "Kia",
+        age: "4",
+        pic: "http://source.unsplash.com/XRcEsQKTWGk/1600x900",
+        isNice: "yes",
+        present: "toy",
+        message: "Hello Santa",
+      },
+      {
+        id: 6,
+        name: "Vihaan",
+        age: "6",
+        pic: "http://source.unsplash.com/_YfoApRxd4I/1600x900",
+        isNice: "yes",
+        present: "toy",
+        message: "Hello Santa",
+      },
+    ],
     loading: false,
   };
 
@@ -14,13 +69,12 @@ export class Letters extends Component {
     this.setState({ letters: res.data, loading: false });
   }
 
-  deleteLetter(id, e) {
+  deleteLetter(id) {
     axios.delete(`http://localhost:5000/letters/${id}`).then((res) => {
       console.log(res);
       console.log(res.data);
-
-      const letters = this.state.letters.filter((item) => item.id !== id);
-      this.setState({ letters });
+      //   const letters = this.state.letters.filter((item) => item.id !== id);
+      //   this.setState({ letters });
     });
   }
 

@@ -19,7 +19,7 @@ const Onekid = (props) => {
           <div className="card-action">
             <button
               className="waves-effect waves-light btn"
-              onClick={(e) => props.deleteLetter({ id }, e)}
+              onClick={() => props.deleteLetter(id)}
             >
               Gift Sent
             </button>
