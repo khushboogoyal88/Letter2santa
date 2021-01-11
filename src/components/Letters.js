@@ -14,13 +14,27 @@ export class Letters extends Component {
     this.setState({ letters: res.data, loading: false });
   }
 
+  deleteLetter(id, e) {
+    axios.delete(`http://localhost:5000/letters/${id}`).then((res) => {
+      console.log(res);
+      console.log(res.data);
+
+      const letters = this.state.letters.filter((item) => item.id !== id);
+      this.setState({ letters });
+    });
+  }
+
   render() {
     return (
       <div className="wrapper">
         <h2>All the Letters sent to Santa</h2>
         <div style={letterStyle}>
           {this.state.letters.map((letter) => (
-            <Onekid key={letter.id} letter={letter} />
+            <Onekid
+              key={letter.id}
+              letter={letter}
+              deleteLetter={this.deleteLetter}
+            />
           ))}
         </div>
       </div>

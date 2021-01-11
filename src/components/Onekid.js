@@ -1,7 +1,7 @@
 import React from "react";
 
 const Onekid = (props) => {
-  const { pic, name, age, message } = props.letter;
+  const { id, pic, name, age, message } = props.letter;
   return (
     <div className="row">
       <div className="col s12 m6">
@@ -17,9 +17,12 @@ const Onekid = (props) => {
           </div>
           <div className="card-content">{message}</div>
           <div className="card-action">
-            <a href="#" waves-effect waves-light btn>
-              More Details
-            </a>
+            <button
+              className="waves-effect waves-light btn"
+              onClick={(e) => props.deleteLetter({ id }, e)}
+            >
+              Gift Sent
+            </button>
           </div>
         </div>
       </div>
