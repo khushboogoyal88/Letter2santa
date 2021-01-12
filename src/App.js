@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Nav";
 import Form from "./components/Form";
-import Popup from "./components/Popup";
 import axios from "axios";
 import LettersGrid from "./components/LettersGrid";
 import Search from "./components/Search";
@@ -21,8 +20,6 @@ const App = () => {
     present: "",
     message: "",
   });
-
-  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -44,11 +41,6 @@ const App = () => {
     });
   };
 
-  const popupHandler = (e) => {
-    setShowPopup(true);
-    e.preventDefault();
-  };
-
   const submitHandler = () => {
     if (window.confirm("Should we send your letter to Santa?")) {
       axios.post("http://localhost:5000/letters", letter);
@@ -68,16 +60,6 @@ const App = () => {
           <Route exact path="/">
             <Fragment>
               <Form change={changeHandler} submit={submitHandler} />
-              {showPopup && (
-                <Popup
-                  name={letter.name}
-                  age={letter.age}
-                  pic={letter.pic}
-                  isNice={letter.isNice}
-                  present={letter.present}
-                  submit={submitHandler}
-                />
-              )}
             </Fragment>
           </Route>
           <Route path="/letters">

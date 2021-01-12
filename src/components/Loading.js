@@ -2,8 +2,8 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div>
-      <h4>Loading....</h4>
+    <div className="progress spinner">
+      <div className="indeterminate"></div>
     </div>
   );
 };

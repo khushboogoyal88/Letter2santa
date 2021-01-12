@@ -1,11 +1,10 @@
 import React from "react";
 import Onekid from "./Onekid";
+import Loading from "./Loading";
 
 const LettersGrid = ({ letters, isLoading }) => {
   return isLoading ? (
-    <div className="progress spinner">
-      <div className="indeterminate"></div>
-    </div>
+    <Loading />
   ) : (
     <div style={letterStyle}>
       {letters.map((letter) => (
