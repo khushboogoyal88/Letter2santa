@@ -62,8 +62,8 @@ const App = () => {
 
   return (
     <Router>
+      <Nav title="Letter2Santa" icon="email" />
       <div className="container wrapper ">
-        <Nav title="Letter2Santa" icon="email" />
         <Switch>
           <Route exact path="/">
             <Fragment>
