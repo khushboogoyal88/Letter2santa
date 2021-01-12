@@ -1,13 +1,18 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Nav";
-import Letters from "./components/Letters";
 import Form from "./components/Form";
 import Popup from "./components/Popup";
 import axios from "axios";
+import LettersGrid from "./components/LettersGrid";
+import Search from "./components/Search";
 
 const App = () => {
+  const [letters, setLetters] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [query, setQuery] = useState("");
+
   const [letter, setLetter] = useState({
     name: "",
     age: "",
@@ -18,6 +23,19 @@ const App = () => {
   });
 
   const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      const result = await axios(
+        `https://rickandmortyapi.com/api/character?name=${query}`
+      );
+      console.log(result.data.results);
+      setLetters(result.data.results);
+      setIsLoading(false);
+    };
+
+    fetchItems();
+  }, [query]);
 
   const changeHandler = (e) => {
     setLetter({
@@ -36,6 +54,10 @@ const App = () => {
       axios.post("http://localhost:5000/letters", letter);
       window.location.reload();
     }
+  };
+
+  const getQuery = (q) => {
+    setQuery(q);
   };
 
   return (
@@ -59,7 +81,8 @@ const App = () => {
             </Fragment>
           </Route>
           <Route path="/letters">
-            <Letters />
+            <Search getQuery={getQuery} />
+            <LettersGrid isLoading={isLoading} letters={letters} />
           </Route>
           <Route path="/:user">
             <h3>User</h3>
