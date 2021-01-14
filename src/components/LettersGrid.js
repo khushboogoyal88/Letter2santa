@@ -2,7 +2,7 @@ import React from "react";
 import Onekid from "./Onekid";
 import Loading from "./Loading";
 
-const LettersGrid = ({ letters, isLoading }) => {
+const LettersGrid = ({ letters, isLoading, removeLetter }) => {
   return isLoading ? (
     <Loading />
   ) : (
@@ -10,9 +10,13 @@ const LettersGrid = ({ letters, isLoading }) => {
       {letters.map((letter) => (
         <Onekid
           key={letter.id}
+          id={letter.id}
           name={letter.name}
-          image={letter.image}
-          species={letter.species}
+          pic={letter.pic}
+          age={letter.age}
+          present={letter.present}
+          message={letter.message}
+          removeLetter={removeLetter}
         />
       ))}
     </div>

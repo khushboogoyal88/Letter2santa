@@ -6,7 +6,7 @@
       "age": "5",
       "pic": "http://source.unsplash.com/GagC07wVvck/1600x900",
       "isNice": "yes",
-      "present": "toy",
+      "present": "Barbie",
       "message": "Hello Santa"
     },
     {
@@ -15,7 +15,7 @@
       "age": "5",
       "pic": "http://source.unsplash.com/vKuEhorbvYI/1600x900",
       "isNice": "yes",
-      "present": "toy",
+      "present": "Book",
       "message": "Hello Santa"
     },
     {
@@ -24,16 +24,25 @@
       "age": "5",
       "pic": "http://source.unsplash.com/qDY9ahp0Mto/1600x900",
       "isNice": "yes",
-      "present": "toy",
+      "present": "Toy-car",
       "message": "Hello Santa"
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "Kia",
       "age": "4",
       "pic": "http://source.unsplash.com/XRcEsQKTWGk/1600x900",
       "isNice": "yes",
-      "present": "toy",
+      "present": "Toy-mermaid",
+      "message": "Hello Santa"
+    },
+    {
+      "id": 5,
+      "name": "Vihaan",
+      "age": "2",
+      "pic": "http://source.unsplash.com/_YfoApRxd4I/1600x900",
+      "isNice": "yes",
+      "present": "Toy-mermaid",
       "message": "Hello Santa"
     }
   ]

@@ -22,17 +22,22 @@ const App = () => {
   });
 
   useEffect(() => {
-    const fetchItems = async () => {
-      const result = await axios(
-        `https://rickandmortyapi.com/api/character?name=${query}`
-      );
-      console.log(result.data.results);
-      setLetters(result.data.results);
+    const fetchItems = () => {
+      axios
+        .get(`http://localhost:5000/letters`)
+        .then((resp) => {
+          const data = resp.data;
+          setLetters(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
       setIsLoading(false);
     };
 
     fetchItems();
-  }, [query]);
+  }, []);
 
   const changeHandler = (e) => {
     setLetter({
@@ -52,6 +57,14 @@ const App = () => {
     setQuery(q);
   };
 
+  const removeLetter = (id) => {
+    axios.delete(`http://localhost:5000/letters/${id}`).then((resp) => {
+      const data = resp.data;
+      setLetters(data);
+    });
+    window.location.reload();
+  };
+
   return (
     <Router>
       <Nav title="Letter2Santa" icon="email" />
@@ -59,12 +72,19 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             <Fragment>
-              <Form change={changeHandler} submit={submitHandler} />
+              <Form
+                change={changeHandler}
+                submit={submitHandler}
+                removeLetter={removeLetter}
+              />
             </Fragment>
           </Route>
           <Route path="/letters">
-            <Search getQuery={getQuery} />
-            <LettersGrid isLoading={isLoading} letters={letters} />
+            <LettersGrid
+              isLoading={isLoading}
+              letters={letters}
+              removeLetter={removeLetter}
+            />
           </Route>
           <Route path="/:user">
             <h3>User</h3>
