@@ -9,7 +9,7 @@ const Onekid = ({ id, name, age, pic, message, present, removeLetter }) => {
             <img src={pic} alt="kid_image" className="circle responsive-img" />
           </div>
           <div className="card-content">
-            {name} ({age})<p>Present wanted: {present}</p>
+            {name} ({age} yrs)<p>Present wanted: {present}</p>
             <div>Letter: {message}</div>
           </div>
           <div className="card-action">
