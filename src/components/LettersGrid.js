@@ -9,8 +9,8 @@ const LettersGrid = ({ letters, isLoading, removeLetter }) => {
     <div style={letterStyle}>
       {letters.map((letter) => (
         <Onekid
-          key={letter.id}
-          id={letter.id}
+          key={letter._id}
+          id={letter._id}
           name={letter.name}
           pic={letter.pic}
           age={letter.age}
